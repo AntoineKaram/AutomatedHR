@@ -37,7 +37,7 @@
     <!--[if lt IE 9]><link rel="stylesheet" href="assets/plugins/sky-forms-pro/skyforms/css/sky-forms-ie8.css"><![endif]-->
     <!-- CSS Customization -->
     <link rel="stylesheet" href="assets/css/custom.css">
-
+    <link href="../Custom/customized.css" rel="stylesheet" />
 </head>
 
 <body >
@@ -187,18 +187,14 @@
                             <!-- Education Form -->
                             <form action="#" id="sky-form4" class="sky-form" name="basicInfo">
                                 <header>Education Info</header>
-                                <fieldset>
+                                <fieldset ng-controller="educationController">
                                     <div class="row">
-                                        <section class="col col-6" ng-controller="degreeController">
+                                        <section class="col col-6" >
                                             <label class="select">
-                                                <select name="month" onchange="showfield(this.options[this.selectedIndex].value)">
+                                                <select name="month" onchange="showfield(this.options[this.selectedIndex].value)" ng-model="Application.Education.Degree">
                                                     <option value="0" selected disabled>Degree</option>
                                                     <option value="{{degree.attributeName}}" ng-repeat="degree in degrees">{{degree.attributeValue}}</option>
                                                     <option value="Other">Other</option>
-                                                    <!--<option value="1">Software Engineer</option>
-                                                    <option value="1">CRM Software Engineer</option>
-                                                    <option value="3">Business Analyst</option>
-                                                    <option value="Other">Other</option>-->
                                                 </select>
                                                 <i></i>
                                             </label>
@@ -211,7 +207,7 @@
                                         <section class="col-lg-6">
                                             <label class="input">
                                                 <i class="icon-append fa fa-user"></i>
-                                                <input type="text" name="Institue" placeholder="Institute*">
+                                                <input type="text" name="Institue" placeholder="Institute*" ng-model="Application.Education.Institute">
                                                 <b class="tooltip tooltip-bottom-right">Please enter your institute</b>
                                             </label>
                                         </section>
@@ -220,39 +216,43 @@
                                         <section class="col-lg-6">
                                             <label class="input">
                                                 <i class="icon-append fa fa-user"></i>
-                                                <input type="text" name="Nationality" placeholder="GPA">
+                                                <input type="text" name="GPA" placeholder="GPA" ng-model="Application.Education.GPA">
                                             </label>
                                         </section>
 
                                         <section class="col-lg-6">
-                                            <div class="inline-group">
-                                                <label class="checkbox"><input type="checkbox" value="SocialMedia" name="checkbox-inline" checked><i></i>BS</label>
-                                                <label class="checkbox"><input type="checkbox" value="FriendsAndFamily" name="checkbox-inline"><i></i>MS</label>
+                                            <div class="inline-group" >
+                                                <label class="checkbox"><input type="checkbox" value="SocialMedia" name="checkbox-inline" ng-model="Application.Education.BS" checked><i></i>BS</label>
+                                                <label class="checkbox"><input type="checkbox" value="FriendsAndFamily" name="checkbox-inline" ng-model="Application.Education.MS"><i></i>MS</label>
                                             </div>
                                         </section>
                                     </div>
 
-                                    <button style="width:80px" type="button" class="btn btn-default">Add</button>
-
+                                    <button style="width:80px" type="button" class="btn btn-default" ng-click="addEducationExperience()">Add</button>
+                                    <div class="row">
+                                        <section style="width:100%;height:100px" class="col-6">
+                                            <p style="width:100%;" ng-repeat="educationExperience in educationExperiences"> {{educationExperience.Degree}} {{educationExperience.Institute}} {{educationExperience.GPA}} {{educationExperience.BS}}{{educationExperience.MS}}</p>
+                                        </section>
+                                    </div>
                                 </fieldset>
 
                             </form>
                             <!-- End Education Form -->
-                            <!-- Basic Info Form -->
+                            <!-- Work Experience Form -->
                             <form action="#" id="sky-form4" class="sky-form" name="basicInfo">
                                 <header>Work Experience</header>
-                                <fieldset>
+                                <fieldset ng-controller="workExperienceController">
                                     <div class="row">
                                         <section class="col-lg-6">
                                             <label class="input">
                                                 <i class="icon-append fa fa-user"></i>
-                                                <input type="text" name="employer" placeholder="Employer*">
+                                                <input type="text" name="employer" placeholder="Employer*" ng-model="Application.Work.Employer">
                                                 <b class="tooltip tooltip-bottom-right">Please enter your employer name</b>
                                             </label>
                                         </section>
                                         <section class="col-lg-6">
                                             <div class="inline-group">
-                                                <label class="checkbox"><input type="checkbox" value="current" name="checkbox-inline" checked><i></i>Current*</label>
+                                                <label class="checkbox"><input type="checkbox" value="current" name="checkbox-inline" ng-model="Application.Work.Current" checked><i></i>Current*</label>
                                             </div>
                                         </section>
                                     </div>
@@ -260,13 +260,13 @@
                                         <section class="col-lg-6">
                                             <label class="input">
                                                 <i class="icon-append fa fa-calendar"></i>
-                                                <input type="text" name="start" id="start" placeholder="Start Date">
+                                                <input type="text" name="start" id="start" placeholder="Start Date" ng-model="Application.Work.StartDate">
                                             </label>
                                         </section>
                                         <section class="col-lg-6">
                                             <label class="input">
                                                 <i class="icon-append fa fa-calendar"></i>
-                                                <input type="text" name="finish" id="finish" placeholder="End Date">
+                                                <input type="text" name="finish" id="finish" placeholder="End Date" ng-model="Application.Work.EndDate">
                                             </label>
                                         </section>
                                     </div>
@@ -274,23 +274,30 @@
                                         <section class="col-lg-6">
                                             <label class="input">
                                                 <i class="icon-append fa fa-user"></i>
-                                                <input type="text" name="role" placeholder="Role*">
+                                                <input type="text" name="role" placeholder="Role*" ng-model="Application.Work.Role">
                                                 <b class="tooltip tooltip-bottom-right">Please enter your role</b>
                                             </label>
                                         </section>
                                         <section class="col-lg-6">
                                             <label class="input">
                                                 <i class="icon-append fa fa-user"></i>
-                                                <input type="text" name="location" placeholder="Location*">
+                                                <input type="text" name="location" placeholder="Location*" ng-model="Application.Work.Location">
                                                 <b class="tooltip tooltip-bottom-right">Please enter your location</b>
                                             </label>
                                         </section>
 
                                     </div>
-                                    <button style="width:80px" type="button" class="btn btn-default">Add</button>
+                                    <button style="width:80px" type="button" class="btn btn-default" ng-click="addWorkExperience()">Add</button>
+
+                                    <div class="row">
+                                        <section style="width:100%;height:100px" class="col-6">
+                                            <p style="width:100%;" ng-repeat="workExperience in workExperiences"> {{workExperience.Employer}} {{workExperience.Current}} </p>
+                                        </section>
+                                    </div>
                                 </fieldset>
                             </form>
-
+                            <!--End Work Form-->
+                            <!--Languages-->
                             <form action="#" id="sky-form4" class="sky-form" name="basicInfo">
                                 <header>Langage</header>
                                 <fieldset ng-controller="languageController">
@@ -298,17 +305,17 @@
                                         <section class="col-lg-6">
                                             <label class="input">
                                                 <i class="icon-append fa fa-user"></i>
-                                                <input type="text" name="langage" placeholder="Langage*" ng-model="Langage">
+                                                <input type="text" name="langage" placeholder="Langage*" ng-model="Application.Langage.Name">
                                                 <b class="tooltip tooltip-bottom-right">Please enter langage</b>
                                             </label>
                                         </section>
                                         <section class="col-lg-6">
                                             <label class="select">
-                                                <select name="DegreeOfProficiency" ng-model="DoP">
+                                                <select name="DegreeOfProficiency" ng-model="Application.Langage.DoP">
                                                     <option selected disabled>Degree Of Proficiency</option>
                                                     <option value="Native">Native</option>
                                                     <option value="Fluent">Fluent</option>
-                                                    <option value="VeryGood">Very Good</option>
+                                                    <option value="Very Good">Very Good</option>
                                                     <option value="Good">Good</option>
                                                 </select>
                                                 <i></i>
@@ -321,7 +328,7 @@
                                     <br/><br/>
                                     <div class="row">
                                         <section style="width:100%;height:100px"class="col-6">
-                                                <p style="width:100%">{{FullLangage}}</p>                                                                                      
+                                                <p style="width:100%;" ng-repeat="fullLanguage in FullLangage"> {{fullLanguage.Language}} {{fullLanguage.DoP}} </p>                                                                                      
                                         </section>
                                     </div>
                                 </fieldset>
@@ -340,8 +347,7 @@
                                    
                                 </fieldset>
                             </form>
-
-                            <!-- End Basic Info Form -->
+                            <!-- End Languages Form -->
                         </div>
                     </div>
                 </div>
@@ -380,7 +386,7 @@
     <script type="text/javascript" src="assets/js/plugins/masking.js"></script>
     <script type="text/javascript" src="assets/js/plugins/datepicker.js"></script>
     <script type="text/javascript" src="assets/js/forms/comment.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular-sanitize.js"></script>
     <!-- Calendar Js-->
     <script type="text/javascript">
         jQuery(document).ready(function () {
