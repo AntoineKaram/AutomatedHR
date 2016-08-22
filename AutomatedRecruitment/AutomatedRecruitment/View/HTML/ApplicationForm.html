@@ -37,9 +37,10 @@
     <!--[if lt IE 9]><link rel="stylesheet" href="assets/plugins/sky-forms-pro/skyforms/css/sky-forms-ie8.css"><![endif]-->
     <!-- CSS Customization -->
     <link rel="stylesheet" href="assets/css/custom.css">
+
 </head>
 
-<body>
+<body >
 
     <div class="wrapper">
         <!--=== Header ===-->
@@ -188,14 +189,16 @@
                                 <header>Education Info</header>
                                 <fieldset>
                                     <div class="row">
-                                        <section class="col col-6">
+                                        <section class="col col-6" ng-controller="degreeController">
                                             <label class="select">
                                                 <select name="month" onchange="showfield(this.options[this.selectedIndex].value)">
                                                     <option value="0" selected disabled>Degree</option>
-                                                    <option value="1">Software Engineer</option>
+                                                    <option value="{{degree.attributeName}}" ng-repeat="degree in degrees">{{degree.attributeValue}}</option>
+                                                    <option value="Other">Other</option>
+                                                    <!--<option value="1">Software Engineer</option>
                                                     <option value="1">CRM Software Engineer</option>
                                                     <option value="3">Business Analyst</option>
-                                                    <option value="Other">Other</option>
+                                                    <option value="Other">Other</option>-->
                                                 </select>
                                                 <i></i>
                                             </label>
@@ -290,18 +293,18 @@
 
                             <form action="#" id="sky-form4" class="sky-form" name="basicInfo">
                                 <header>Langage</header>
-                                <fieldset>
+                                <fieldset ng-controller="languageController">
                                     <div class="row">
                                         <section class="col-lg-6">
                                             <label class="input">
                                                 <i class="icon-append fa fa-user"></i>
-                                                <input type="text" name="langage" placeholder="Langage*">
+                                                <input type="text" name="langage" placeholder="Langage*" ng-model="Langage">
                                                 <b class="tooltip tooltip-bottom-right">Please enter langage</b>
                                             </label>
                                         </section>
                                         <section class="col-lg-6">
                                             <label class="select">
-                                                <select name="DegreeOfProficiency">
+                                                <select name="DegreeOfProficiency" ng-model="DoP">
                                                     <option selected disabled>Degree Of Proficiency</option>
                                                     <option value="Native">Native</option>
                                                     <option value="Fluent">Fluent</option>
@@ -311,18 +314,25 @@
                                                 <i></i>
                                             </label>
                                         </section>
+                                        
                                     </div>
-
-                                    <button style="width:80px" type="button" class="btn btn-default">Add</button>
+                                    
+                                    <button style="width:80px" type="button" class="btn btn-default" ng-click="addLanguage()">Add</button>
+                                    <br/><br/>
+                                    <div class="row">
+                                        <section style="width:100%;height:100px"class="col-6">
+                                                <p style="width:100%">{{FullLangage}}</p>                                                                                      
+                                        </section>
+                                    </div>
                                 </fieldset>
                                 <fieldset>
                                     <div class="row">
                                         <section class="col-lg-1"></section>
                                         <section class="col-lg-5">
-                                            <button type="submit" style=" width:100%;" class="btn btn-primary">Submit</button>
+                                            <button type="submit" style="width:100%;" class="btn btn-primary">Submit</button>
                                         </section>
                                         <section class="col-lg-5">
-                                            <button  style=" width:100%;" class="btn btn-primary">Cancel</button>
+                                            <button  style="width:100%;" class="btn btn-primary">Cancel</button>
                                         </section>
                                         <section class="col-lg-1"></section>
                                     </div>
@@ -343,6 +353,7 @@
 
     </div><!--/End Wrapepr-->
     <!-- JS Global Compulsory -->
+    <script src="../../scripts/angular.min.js"></script>
     <script type="text/javascript" src="assets/plugins/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="assets/plugins/jquery/jquery-migrate.min.js"></script>
     <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
@@ -380,17 +391,10 @@
         });
     </script>
     <!-- Dob JS-->
-    <script>
-        var app = angular.module("application", []);
-        app.controller('yearController', function ($scope) {
-            $scope.user = {
-                year: {
-                    minlength: 4,
-                    maxlength: 4
-                }
-            }
-        });
-    </script>
+    <script src="../../scripts/App.js"></script>
+
+    
+
     <!--[if lt IE 9]>
         <script src="assets/plugins/respond.js"></script>
         <script src="assets/plugins/html5shiv.js"></script>

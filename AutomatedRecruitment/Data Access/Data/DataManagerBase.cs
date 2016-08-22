@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -14,8 +15,7 @@ namespace Data_Access.Data
 
         public DataManagerBase()
         {
-            _connectionString = "Data Source=.;Initial Catalog=OnlineShopping;Integrated Security=SSPI;";
-
+            _connectionString = ConfigurationManager.ConnectionStrings["Con"].ConnectionString;
         }
 
 
