@@ -29,22 +29,25 @@ FormApp.controller('yearController', function ($scope) {
 FormApp.controller('languageController', function ($scope) {
     $scope.FullLangage = [{}];
     $scope.addLanguage = function addLanguage() {
-      $scope.Current = $scope.FullLangage;
-      $scope.FullLangage = $scope.Current + "/n" + ' ' + $scope.Langage + ' ' + $scope.DoP;
+        $scope.Current = $scope.FullLangage;
+        $scope.FullLangage = $scope.Current + "/n" + ' ' + $scope.Langage + ' ' + $scope.DoP;
       
 
-FormApp.controller('workExperienceController', function ($scope) {
-    $scope.workExperiences = [{}];
-    $scope.addWorkExperience = function addWorkExperience() {
-        $scope.Current = [{
-            "Employer": $scope.Application.Work.Employer,
-            "Current": $scope.Application.Work.Current,
-            "StartDate": $scope.Application.Work.StartDate,
-            "EndDate": $scope.Application.Work.EndDate,
-            "Role": $scope.Application.Work.Role,
-            "Location": $scope.Application.Work.Location
-        }];
-        $scope.workExperiences = $scope.workExperiences.concat($scope.Current);
-        alert(JSON.stringify($scope.workExperiences));
-    };
-});
+        FormApp.controller('workExperienceController', function ($scope) {
+            $scope.workExperiences = [{}];
+            $scope.addWorkExperience = function addWorkExperience() {
+                $scope.Current = [{
+                    "Employer": $scope.Application.Work.Employer,
+                    "Current": $scope.Application.Work.Current,
+                    "StartDate": $scope.Application.Work.StartDate,
+                    "EndDate": $scope.Application.Work.EndDate,
+                    "Role": $scope.Application.Work.Role,
+                    "Location": $scope.Application.Work.Location
+                }];
+                $scope.workExperiences = $scope.workExperiences.concat($scope.Current);
+                alert(JSON.stringify($scope.workExperiences));
+            };
+        });
+    }
+}
+)
