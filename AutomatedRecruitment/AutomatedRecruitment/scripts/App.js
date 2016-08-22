@@ -19,7 +19,7 @@ FormApp.controller('languageController', function ($scope) {
     $scope.FullLangage = '';
     $scope.addLanguage = function addLanguage() {
       $scope.Current = $scope.FullLangage;
-      $scope.FullLangage = $scope.Current + "/n" + ' ' + $scope.Langage + ' ' + $scope.DoP;
+      $scope.FullLangage = $scope.Current + '\n' + ' ' + $scope.Langage + ' ' + $scope.DoP;
       
 
     };
