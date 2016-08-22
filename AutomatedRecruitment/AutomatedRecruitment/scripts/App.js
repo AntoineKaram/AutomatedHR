@@ -29,15 +29,9 @@ FormApp.controller('yearController', function ($scope) {
 FormApp.controller('languageController', function ($scope) {
     $scope.FullLangage = [{}];
     $scope.addLanguage = function addLanguage() {
-        $scope.Current = [{
-            "Language": $scope.Application.Langage.Name,
-            "DoP": $scope.Application.Langage.DoP
-      }];
-      $scope.FullLangage = $scope.FullLangage.concat($scope.Current);
-      alert(JSON.stringify( $scope.FullLangage));
-    };
-
-});
+      $scope.Current = $scope.FullLangage;
+      $scope.FullLangage = $scope.Current + "/n" + ' ' + $scope.Langage + ' ' + $scope.DoP;
+      
 
 FormApp.controller('workExperienceController', function ($scope) {
     $scope.workExperiences = [{}];
