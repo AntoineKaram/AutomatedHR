@@ -8,6 +8,6 @@ namespace AutomatedRecruitment.Data
 {
    public interface IApplicantDataManager
     {
-        string onSubmit(ApplicantModel application);
+        string onSubmitA(ApplicantModel application);
     }
 }

@@ -13,7 +13,7 @@ namespace AutomatedRecruitment.DataAccess
     {
     
 
-        public string onSubmit(ApplicantModel application)
+        public string onSubmitA(ApplicantModel application)
         {
             if (application != null)
             {

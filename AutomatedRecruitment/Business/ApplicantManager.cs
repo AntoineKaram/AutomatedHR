@@ -16,9 +16,9 @@ namespace AutomatedRecruitment.Business
         {
             _applicationDataManager = new ApplicantDataManager();
         }
-        public string onSubmit(ApplicantModel application)
+        public string onSubmitA(ApplicantModel application)
         {
-            return _applicationDataManager.onSubmit(application);
+            return _applicationDataManager.onSubmitA(application);
         }
     }
 }

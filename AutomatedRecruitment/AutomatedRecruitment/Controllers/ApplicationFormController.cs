@@ -35,7 +35,7 @@ namespace AutomatedRecruitment.Controllers
 
         public string onSubmit(ApplicantModel application)
         {
-            return _applicationManager.onSubmit(application);
+            return _applicationManager.onSubmitA(application);
         }
         public string onSubmitE (EducationModel education)
         {
