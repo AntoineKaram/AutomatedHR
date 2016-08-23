@@ -23,8 +23,8 @@ namespace AutomatedRecruitment.DataAccess
                 {
                     DegreeModel degreeTemp = new DegreeModel()
                     {
-                        attributeName = reader.GetValue<String>(0),
-                        attributeValue = reader.GetValue<String>(1),
+                        AttributeName = reader.GetValue<String>(0),
+                        AttributeValue = reader.GetValue<String>(1),
                         LCID = reader.GetValue<int>(2)
                     };
                     return degreeTemp;

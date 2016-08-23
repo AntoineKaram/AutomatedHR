@@ -40,7 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IApplicantDataManager.cs" />
     <Compile Include="IDegreeDataManager.cs" />
+    <Compile Include="IEducationDataManager.cs" />
+    <Compile Include="ILanguageDataManager.cs" />
+    <Compile Include="IWorkExperienceDataManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

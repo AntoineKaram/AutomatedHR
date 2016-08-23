@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace AutomatedRecruitment.Model
 {
-    public class DegreeModel
+   public class LanguageModel
     {
-        public string AttributeName { get; set; }
-        public string AttributeValue { get; set; }
-        public int LCID  { get; set; }
+        public string Language { get; set; }
+        public string DoP { get; set; }
     }
 }

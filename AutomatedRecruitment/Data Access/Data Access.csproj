@@ -41,10 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicantDataManager.cs" />
     <Compile Include="Data Extension\DataAccessExtensions.cs" />
     <Compile Include="Data\DataManagerBase.cs" />
     <Compile Include="DegreeDataManager.cs" />
+    <Compile Include="EducationDataManager.cs" />
+    <Compile Include="LanguageDataManagercs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WorkExperienceDataManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj">

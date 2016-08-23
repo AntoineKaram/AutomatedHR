@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace AutomatedRecruitment.Model
 {
-    public class DegreeModel
+    public class EducationModel
     {
-        public string AttributeName { get; set; }
-        public string AttributeValue { get; set; }
-        public int LCID  { get; set; }
+        public string Institute { get; set; }
+        public decimal GPA { get; set; }
+        public string Diploma { get; set; }
     }
 }
